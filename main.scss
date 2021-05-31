@@ -1,0 +1,342 @@
+
+$background-color: #F0F0F0;
+$main-color: rgb(22, 56, 207);
+$light: white;
+$dark: #32323A;
+$wide: 300px;
+$corner: 10px;
+$shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+* {
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: poppins;
+    margin: 0;
+    padding: 0;
+}
+
+@mixin tablet {
+    @media only screen and (min-width:1200px) {
+        @content;
+    }
+}
+
+html {
+    height: 100%;
+}
+
+
+.toggle {
+    animation: 1s fade;
+
+}
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+body {
+    background: $background-color;
+    height: 100%;
+
+    header {/*
+        position: sticky;
+        top: 0; */
+        box-shadow: $shadow;
+        min-height: 8vh;
+        display: flex;
+        flex-direction: column;
+        @include tablet {
+            flex-direction: row;
+            .logo {
+                width: $wide;
+            }
+
+        }
+
+        > * {
+
+            width: 100%;
+            padding: 0em;
+            justify-content: center;
+            align-items: center;
+        }
+        .logo {
+            background-color: $main-color;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            color: white;
+            min-height: 60px;
+            position: relative;
+            padding: 1em 3em;
+            .icon {
+                cursor: pointer;
+                background: rgb(255, 52, 52);
+                @include tablet {
+                    position: absolute;
+                    right: -20px;
+                }
+                .fa-bars {
+                color: white;
+                }
+            }
+            @include tablet {
+                justify-content: center;
+            }
+
+        }
+
+    nav {
+            > * {
+                padding: 1em 3em;
+            }
+            background-color: $light;
+            display: flex;
+            justify-content: space-between;
+            img {
+                height: 25px;
+                width: 25px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+            a {
+                display: inline-block;
+            }
+
+
+            .icon:hover {
+                background: $main-color;
+                cursor: pointer;
+                i {
+                    color: white;
+                }
+            }
+
+            .icon:not(:first-child) {
+                margin-left: 1em;
+            }
+        }
+    }
+
+    .icon {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        background: #F6F6F6;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        i {
+            color: #235e8f;
+        }
+        .note {
+            position: absolute;
+            top: -.2em;
+            right: -.2em;
+            background: #23AE89;
+            color: $light;
+            height: 20px;
+            width: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+    }
+
+
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        position: relative;
+        min-height: calc(100vh - 8vh);
+
+        @include tablet {
+            flex-direction: row;
+        }
+
+
+
+        aside {
+            overflow: hidden;
+            width: 100%;
+
+            color: $light;
+            transition: 1s;
+            background: $dark;
+            height: 0;
+            transition: 1s;
+
+            @include tablet {
+                position: static;
+                display: initial;
+                width: 1.8%;
+                height: auto;
+            }
+
+
+
+            .box {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                width: 100%;
+                padding: 10px;
+                font-size: 14px;
+                @include tablet {
+                }
+                .wrap {
+                    width: 15px;
+                    @include tablet {
+                        width: 40px;
+                    }
+                }
+                a {
+                    display: inline-block;
+                    font-size: initial;
+                    transition: .5s;
+                    width: 400px;
+                    color: $light;
+
+                    @include tablet {
+                        opacity: 0;
+                    }
+
+                }
+
+            }
+        }
+        main {
+            width: 100%;
+            padding: 2em;
+            h1,p {
+                margin: 0;
+            }
+            h1 {
+                margin-bottom: 1em;
+            }
+            .buttons {
+                display: flex;
+            }
+
+            button {
+                background: $main-color;
+                color: white;
+                display: block;
+                margin: 0;
+                padding: .4em 1em;
+                border: none;
+                cursor: pointer;
+                font-family: poppins;
+                margin-bottom: 1em;
+                transition: 0.5s;
+            }
+            section {
+                display: grid;
+                grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+                gap: 3em;
+                margin-bottom: 3em;
+                article {
+                    border-radius: $corner;
+                    min-height: 120px;
+                    background: $light;
+                    box-shadow: $shadow;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                }
+                .block {
+                    h2 {
+                        margin-bottom: 1em;
+                    }
+                    display: block;
+                    padding: 2em;
+                }
+
+
+
+
+
+                .tap-information {
+
+                    .tap {
+                        display: flex;
+                        justify-content: space-between;
+                    }
+                    .bar {
+                        background: lightgray;
+                        height: 5px;
+                        position: relative;
+                        border-radius: 20px;
+                        margin-bottom: 0.5em;
+                    }
+                    .progress {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 40%;
+                        height: 100%;
+                        border-radius: 20px;
+                        background: green;
+                    }
+                }
+
+
+            }
+            .section-table {
+                padding: 2em;
+                display: block;
+                border-radius: $corner;
+                background: $light;
+                box-shadow: $shadow;
+                overflow-x: auto;
+                h2 {
+                    margin-bottom: 1em;
+                }
+                table {
+                    overflow-x: auto;
+                    text-align: left;
+                    width: 100%;
+                    border-collapse: collapse;
+                    tbody::before {
+                        content: '@';
+                        display:block;
+                        line-height:1em;
+                        text-indent:-99999px;
+                    }
+                    thead tr{
+                        padding-bottom: 2em;
+                    }
+                    tbody tr{
+                        border-bottom: 1px solid lightgray;
+                    }
+                    td,th {
+                        padding: 1em 2em 1em 0;
+                    }
+                }
+
+            }
+        }
+    }
+
+    .active {
+        height: auto!important;
+        @include tablet {
+            width: 300px!important;
+            height: auto!important;
+        }
+    }
+
+}
