@@ -96,7 +96,7 @@ function createTable(item) {
     const copy = document.querySelector('template').content.cloneNode(true)
 
     copy.querySelector('[data-info=id]').textContent = item.id
-    copy.querySelector('[data-info=start-time]').textContent = item.startTime
+    copy.querySelector('[data-info=start-time]').textContent = getTime(item.startTime)
     item.order.forEach(element=>{
         const li = document.createElement('li')
         li.textContent = element
@@ -106,6 +106,10 @@ function createTable(item) {
     copy.querySelector('[data-info=status]').textContent = item.status
 
     document.querySelector('.section-table tbody').appendChild(copy)
+}
+
+function getTime(time) {
+  return time
 }
 
 function capitalize(string) {

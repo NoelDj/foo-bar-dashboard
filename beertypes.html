@@ -55,55 +55,30 @@
         </aside>
 
     <main>
-        <h1>Today's Orders</h1>
-
-        <section>
-
-
-            <article class="small-card" id="queue">
-                <h2></h2>
-                <h3>In Queue</h3>
-            </article>
-
-
-            <article class="small-card" id="serving">
-                <h2></h2>
-                <h3>Closing Time</h3>
-            </article>
-
-
-            <article class="small-card" id="completed">
-                <h2></h2>
-                <h3>Completed</h3>
-            </article>
-
-        </section>
-
-
-        <div class="buttons">
-            <button data-filter="*">All Orders</button>
-            <button data-filter="Queue">Queue</button>
-            <button data-filter="Serving">Serving</button>
-            <button data-filter="Completed"> Completed</button>
-        </div>
-
+        <h2>Beertypes</h2>
         <section class="section-table">
-
-
-
+            <h2>Beertypes</h2>
             <table>
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Start Time</th>
-                        <th>Order</th>
-                        <th>Total</th>
-                        <th>Status</th>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Alcohol</th>
+                        <th>Origin</th>
+                        <th>Description</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="types">
 
-
+                    <template>
+                        <tr>
+                            <td data-info="name"></td>
+                            <td data-info="category"></td>
+                            <td data-info="alc"></td>
+                            <td data-info="origin"></td>
+                            <td data-info="description"><small>Read More</small></td>
+                        </tr>
+                    </template>
 
 
                 </tbody>
@@ -111,21 +86,10 @@
               </table>
         </section>
 
-        <template>
-            <tr>
-                <td data-info="id"></td>
-                <td data-info="start-time"></td>
-                <td data-info="order"><ul></ul></td>
-                <td data-info="total"></td>
-                <td data-info="status"></td>
-                <td>...</td>
-            </tr>
-        </template>
-
 
     </main>
     </div>
-    <script type="module" src="orders.js"></script>
+    <script type="module" src="./beertypes.js"></script>
     <script src="menu.js"></script>
 
 <script>
