@@ -9,7 +9,15 @@ let toggle = false;
         })
         document.querySelector('.fa-bars').addEventListener('click', (e) => {
 
-            document.querySelector('aside').classList.toggle('active')
+
+            const nameOfClass = document.querySelector('aside').className
+            console.log(nameOfClass)
+            if(nameOfClass==='active'){
+                document.querySelector('aside').classList.remove('active')
+            } else {
+                document.querySelector('aside').classList.add('active')
+            }
+
             toggle = !toggle;
             toggleAside()
 
