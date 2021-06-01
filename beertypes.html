@@ -55,9 +55,8 @@
         </aside>
 
     <main>
-        <h2>Beertypes</h2>
+        <h1>Beertypes</h1>
         <section class="section-table">
-            <h2>Beertypes</h2>
             <table>
                 <thead>
                     <tr>
@@ -76,7 +75,7 @@
                             <td data-info="category"></td>
                             <td data-info="alc"></td>
                             <td data-info="origin"></td>
-                            <td data-info="description"><small>Read More</small></td>
+                            <td data-info="description"> <span>Read More</span>  </td>
                         </tr>
                     </template>
 
@@ -88,6 +87,28 @@
 
 
     </main>
+
+    <template id="my-template">
+        <swal-title>
+          Save changes to "Untitled 1" before closing?
+        </swal-title>
+        <swal-icon type="warning" color="red"></swal-icon>
+        <swal-button type="confirm">
+          Save As
+        </swal-button>
+        <swal-button type="cancel">
+          Cancel
+        </swal-button>
+        <swal-button type="deny">
+          Close without Saving
+        </swal-button>
+        <swal-param name="allowEscapeKey" value="false" />
+        <swal-param
+          name="customClass"
+          value='{ "popup": "my-popup" }' />
+      </template>
+
+
     </div>
     <script type="module" src="./beertypes.js"></script>
     <script src="menu.js"></script>

@@ -5,7 +5,7 @@ import './main.scss'
 import './main.scss'
 
 const list = [{
-    "id": 107,
+    "id": 1,
     "startTime": 1622291201602,
     "order": [
       "El Hefe",
@@ -15,7 +15,7 @@ const list = [{
     ],
     "status" : 'Completed'
   },{
-    "id": 207,
+    "id": 3,
     "startTime": 1622291321602,
     "order": [
       "El Hefe",
@@ -25,7 +25,7 @@ const list = [{
     ],
     "status" : 'Completed'
   },{
-    "id": 307,
+    "id": 5,
     "startTime": 1622291741602,
     "order": [
       "El Hefe",
@@ -59,6 +59,8 @@ async function loadData()
   let data = await response.json()
   handleData(data)
 }
+
+
 
 function handleData(data){
 
@@ -109,7 +111,16 @@ function createTable(item) {
 }
 
 function getTime(time) {
-  return time
+  const currentTime = new Date(time)
+
+  const hours = currentTime.getHours()
+  let minutes = currentTime.getMinutes()
+  minutes = minutes > 9 ? minutes : '0' + minutes;
+  const seconds = currentTime.getSeconds()
+
+  const formatted = `${hours}:${minutes}:${seconds}`
+
+  return formatted
 }
 
 function capitalize(string) {

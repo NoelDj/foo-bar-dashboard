@@ -14,7 +14,7 @@
 
     <header>
         <div class="logo">
-            <p>Foo Bar</p>
+            <img src="foo-bar-logo.png" alt="" style="width: 40px;">
             <div class="icon">
                 <i class="fas fa-bars"></i>
             </div>
@@ -35,28 +35,41 @@
             </div>
 
             <div class="profile">
-                <img src="riqui.jpg" alt="">
-                <div class="settings"></div>
+                <div class="icon">
+
+                    <img src="riqui.jpg" alt="">
+                </div>
+                <div class="icon">
+                    <a href="login.html">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </a>
+                </div>
             </div>
         </nav>
     </header>
 
     <div class="wrapper">
         <aside>
-                <div class="box" style="background: #23AE89;">
-                    <div class="wrap"><i class="fas fa-eye"></i></div> <a href="index.html">Overview</a>
-                </div>
-                <div class="box" style="background:#F98E33"> <div class="wrap"><i class="fas fa-file-invoice"></i></div> <a
-                        href="orders.html">Orders</a></div>
-                <div class="box" style="background: #1C7EBB;"><div class="wrap"><i class="fas fa-beer"></i></div><a
-                        href="beertypes.html">Beertypes</a></div>
-                <div class="box" style="background: #6A55C2;"><div class="wrap"><i class="fas fa-pump-soap"></i></div><a href="taps.html">Taps</a>
-                </div>
-            </aside>
+            <div class="box" style="background: #23AE89;">
+                <div class="wrap"><i class="fas fa-eye"></i></div> <a href="index.html">Overview</a>
+            </div>
+            <div class="box" style="background:#F98E33">
+                <div class="wrap"><i class="fas fa-file-invoice"></i></div> <a href="orders.html">Orders</a>
+            </div>
+            <div class="box" style="background: #1C7EBB;">
+                <div class="wrap"><i class="fas fa-beer"></i></div><a href="beertypes.html">Beertypes</a>
+            </div>
+            <div class="box" style="background: #6A55C2;">
+                <div class="wrap"><i class="fas fa-pump-soap"></i></div><a href="taps.html">Taps</a>
+            </div>
+        </aside>
 
         <main>
+
+
             <p>Welcome, Foo Bar</p>
             <h1>Dashboard</h1>
+
             <section>
 
                 <article class="small-card" id="current-orders">
@@ -83,9 +96,9 @@
             <section>
                 <article class="block">
                     <h2>Stock</h2>
-                    <ul id="storage">
-
-                    </ul>
+                    <table id="storage">
+                        <canvas id="myChart"></canvas>
+                    </table>
 
                 </article>
                 <article class="block" id="taps">
@@ -109,7 +122,7 @@
 
             <section class="section-table">
                 <h2>Employees</h2>
-                <table>
+                <table id="staff">
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -145,7 +158,6 @@
     <script type="module" src="./index.js"></script>
 
     <script src="menu.js"></script>
-
 </body>
 
 </html>

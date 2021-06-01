@@ -121,6 +121,10 @@ body {
             .icon:not(:first-child) {
                 margin-left: 1em;
             }
+
+            .profile {
+                display: flex;
+            }
         }
     }
 
@@ -245,7 +249,7 @@ body {
             }
             section {
                 display: grid;
-                grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+                grid-template-columns: repeat( auto-fit, minmax(350px, 1fr) );
                 gap: 3em;
                 margin-bottom: 3em;
                 article {
@@ -265,7 +269,6 @@ body {
                     display: block;
                     padding: 2em;
                 }
-
 
 
 
@@ -326,9 +329,58 @@ body {
                     td,th {
                         padding: 1em 2em 1em 0;
                     }
+                    [data-info=description] span{
+                        background: #1638CF;
+                        border-radius: $corner;
+                        padding: .2em;
+                        color: white;
+                        cursor: pointer;
+                    }
                 }
 
             }
+        }
+    }
+
+    .login {
+        height: 100%;
+        display: grid;
+        place-items: center;
+        h1 {
+            margin-bottom: 1em;
+        }
+        form {
+            width: 100%;
+        max-width: 400px;
+        border-radius: $corner;
+        background: $light;
+        box-shadow: $shadow;
+        display: flex;
+        flex-direction: column;
+        padding: 2em;
+        input {
+            display: block;
+            margin-bottom: 1em;
+
+        }
+        a {
+            margin-bottom: .5em;
+        }
+
+        button {
+
+            background: $main-color;
+            color: white;
+            display: block;
+            margin: 0;
+            padding: .4em 1em;
+            border: none;
+            cursor: pointer;
+            font-family: poppins;
+            margin-bottom: 1em;
+            transition: 0.5s;
+        }
+
         }
     }
 
@@ -338,6 +390,11 @@ body {
             width: 300px!important;
             height: auto!important;
         }
+    }
+
+    .swal2-popup {/*
+        height: 200px;
+        overflow-y: auto; */
     }
 
 }
