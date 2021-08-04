@@ -10,6 +10,7 @@ base: "./",
         beertypes: resolve(__dirname, 'beertypes.html'),
         orders: resolve(__dirname, 'orders.html'),
         taps: resolve(__dirname, 'taps.html'),
+        login: resolve(__dirname, 'login.html'),
       }
     }
   }
