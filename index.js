@@ -2,7 +2,7 @@ import './main.scss'
 import Toastify from 'toastify-js'
 import "toastify-js/src/toastify.css"
 import Chart from 'chart.js/auto';
-
+import '@fortawesome/fontawesome-free/js/all.min.js';
 // If you use the default popups, use this.
 
 
@@ -45,11 +45,11 @@ function handleData(data){
 function createLists(data){
 
     const sorted = data.bartenders.sort((a, b) =>  a.name < b.name ? -1 : 1)
+    document.querySelector('.loader').remove()
     sorted.forEach(appendTable)
 
     createStockChart(data.storage)
 
-    console.log(sorted)
     data.taps.forEach(appendTapList)
 }
 
@@ -88,7 +88,7 @@ function appendTable(person) {
 
     copy.querySelector('[data-info=name]').textContent = capitalize(person.name)
     copy.querySelector('[data-info=status]').textContent = capitalize(person.status)
-    copy.querySelector('[data-info=serving]').textContent = person.servingCustomer
+    copy.querySelector('[data-info=serving]').textContent = person.servingCustomer ?  'ID: ' + person.servingCustomer : 'NA'
     copy.querySelector('[data-info=status-detail]').textContent = person.statusDetail
     copy.querySelector('[data-info=using-tap]').textContent = person.usingTap ?  person.usingTap : 'NA'
 
@@ -96,10 +96,11 @@ function appendTable(person) {
 }
 
 function createStockChart(information) {
+
     const amount = information.map(number=>number.amount)
-    console.log(amount)
+
     const names = information.map(string=>string.name)
-    console.log(names)
+
     const labels = names
 
     const data = {
@@ -107,19 +108,34 @@ function createStockChart(information) {
         datasets: [{
             label: 'Amount',
             backgroundColor: '#1C7EBB',
-            borderColor: 'rgb(255, 99, 132)',
+            borderColor: 'white',
             data: amount,
         }]
     };
     const config = {
         type: 'bar',
         data,
-        options: {responsive: true}
+        options: {
+
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    labels: {
+                        font: {
+                            size: 0
+                        }
+                    }
+                }
+            }
+        }
+
     };
     var myChart = new Chart(
-        document.getElementById('myChart'),
+        document.getElementById('stock-chart'),
         config
     );
+
 }
 
 function capitalize(string) {
@@ -143,6 +159,6 @@ function insertStock(id, data){
         document.querySelector(`#${id} h2`).textContent = data
     } else {
         document.querySelector(`#${id} h2`).textContent = 'No Items'
-        document.querySelector(`#${id} h2`).style.color = 'green'
+        document.querySelector(`#${id} h2`).style.color = 'rgb(240, 89, 89)'
     }
 }

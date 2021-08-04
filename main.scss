@@ -1,16 +1,22 @@
 
 $background-color: #F0F0F0;
-$main-color: rgb(22, 56, 207);
-$light: white;
-$dark: #32323A;
+$main-color: rgb(28, 126, 187);
+$light: #ffffff;
+$dark: rgb(50, 50, 58);
+$orange: rgb(249, 142, 51);
+$red: rgb(240, 89, 89);
+$green: rgb(35, 174, 137);
+
 $wide: 300px;
 $corner: 10px;
 $shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+
 * {
     box-sizing: border-box;
     text-decoration: none;
     list-style: none;
     font-family: poppins;
+    color: inherit;
     margin: 0;
     padding: 0;
 }
@@ -30,10 +36,12 @@ html {
     animation: 1s fade;
 
 }
+
 @keyframes fade {
     0% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
@@ -44,30 +52,45 @@ body {
     background: $background-color;
     height: 100%;
 
-    header {/*
+    header {
+        /*
         position: sticky;
         top: 0; */
         box-shadow: $shadow;
-        min-height: 8vh;
         display: flex;
         flex-direction: column;
+
+        img {
+            width: 15%;
+        }
+
         @include tablet {
             flex-direction: row;
+
             .logo {
                 width: $wide;
+                padding: 1em;
+
+
             }
+
+            img {
+                width: 35%;
+            }
+
 
         }
 
-        > * {
+        >* {
 
             width: 100%;
             padding: 0em;
             justify-content: center;
             align-items: center;
         }
+
         .logo {
-            background-color: $main-color;
+            background-color: #32323A;
             text-align: center;
             display: flex;
             justify-content: space-between;
@@ -75,47 +98,52 @@ body {
             min-height: 60px;
             position: relative;
             padding: 1em 3em;
+
             .icon {
                 cursor: pointer;
-                background: rgb(255, 52, 52);
+                background: $red;
+
                 @include tablet {
                     position: absolute;
                     right: -20px;
                 }
+
                 .fa-bars {
-                color: white;
+                    color: white;
                 }
             }
+
             @include tablet {
                 justify-content: center;
             }
 
         }
 
-    nav {
-            > * {
+        nav {
+            >* {
                 padding: 1em 3em;
             }
+
             background-color: $light;
             display: flex;
             justify-content: space-between;
+
             img {
                 height: 25px;
                 width: 25px;
                 border-radius: 50%;
                 object-fit: cover;
             }
+
             a {
                 display: inline-block;
             }
 
 
             .icon:hover {
-                background: $main-color;
+                background: $dark;
+                color: $light;
                 cursor: pointer;
-                i {
-                    color: white;
-                }
             }
 
             .icon:not(:first-child) {
@@ -133,14 +161,12 @@ body {
         width: 40px;
         height: 40px;
         background: #F6F6F6;
+        color: $main-color;
         border-radius: 50%;
         display: inline-flex;
         align-items: center;
         justify-content: center;
 
-        i {
-            color: #235e8f;
-        }
         .note {
             position: absolute;
             top: -.2em;
@@ -153,6 +179,7 @@ body {
             align-items: center;
             justify-content: center;
             border-radius: 50%;
+            user-select: none;
         }
     }
 
@@ -196,17 +223,21 @@ body {
                 padding: 10px;
                 font-size: 14px;
                 gap: 20px;
+
                 @include tablet {
 
-                justify-content: space-between;
+                    justify-content: space-between;
                 }
+
                 .wrap {
                     width: 20px;
+
                     @include tablet {
                         width: 10px;
 
                     }
                 }
+
                 a {
                     display: inline-block;
                     font-size: initial;
@@ -222,15 +253,23 @@ body {
 
             }
         }
+
         main {
             width: 100%;
-            padding: 2em;
-            h1,p {
+            padding: 3em;
+
+            h1,
+            p {
                 margin: 0;
+                text-align: center;
             }
+
             h1 {
                 margin-bottom: 1em;
+                text-align: center;
+                font-size: 2.5rem;
             }
+
             .buttons {
                 display: flex;
             }
@@ -239,19 +278,22 @@ body {
                 background: $main-color;
                 color: white;
                 display: block;
-                margin: 0;
+                margin: 1px;
                 padding: .4em 1em;
                 border: none;
                 cursor: pointer;
+                border-radius: 4px;
                 font-family: poppins;
                 margin-bottom: 1em;
                 transition: 0.5s;
             }
+
             section {
                 display: grid;
-                grid-template-columns: repeat( auto-fit, minmax(350px, 1fr) );
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
                 gap: 3em;
                 margin-bottom: 3em;
+
                 article {
                     border-radius: $corner;
                     min-height: 120px;
@@ -262,43 +304,66 @@ body {
                     justify-content: center;
                     flex-direction: column;
                 }
+
                 .block {
+                    display: block;
+                    padding: 2em;
+
                     h2 {
                         margin-bottom: 1em;
                     }
-                    display: block;
-                    padding: 2em;
-                }
 
+                    #storage {
+                        height: 250px;
+                        @include tablet{
+                            height: 400px;
+                        }
+                    }
 
+                    .tap-information {
 
-
-                .tap-information {
-
-                    .tap {
                         display: flex;
+                        flex-direction: column;
                         justify-content: space-between;
-                    }
-                    .bar {
-                        background: lightgray;
-                        height: 5px;
-                        position: relative;
-                        border-radius: 20px;
-                        margin-bottom: 0.5em;
-                    }
-                    .progress {
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        width: 40%;
-                        height: 100%;
-                        border-radius: 20px;
-                        background: green;
-                    }
+                        height: 85%;
+
+                        .tap {
+                            display: flex;
+                            justify-content: space-between;
+                        }
+
+                        .bar {
+                            background: lightgray;
+                            height: 5px;
+                            position: relative;
+                            border-radius: 20px;
+                            margin-bottom: 0.5em;
+                        }
+
+                        .progress {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 40%;
+                            height: 100%;
+                            border-radius: 20px;
+                            background: $main-color;
+                        }
                 }
+
+
+
+
+                }
+
+
+
+
+
 
 
             }
+
             .section-table {
                 padding: 2em;
                 display: block;
@@ -306,34 +371,49 @@ body {
                 background: $light;
                 box-shadow: $shadow;
                 overflow-x: auto;
+
                 h2 {
                     margin-bottom: 1em;
                 }
+
                 table {
                     overflow-x: auto;
                     text-align: left;
                     width: 100%;
                     border-collapse: collapse;
+
                     tbody::before {
                         content: '@';
-                        display:block;
-                        line-height:1em;
-                        text-indent:-99999px;
+                        display: block;
+                        line-height: .5em;
+                        text-indent: -99999px;
                     }
-                    thead tr{
-                        padding-bottom: 2em;
-                    }
-                    tbody tr{
+
+                    tbody tr {
                         border-bottom: 1px solid lightgray;
                     }
-                    td,th {
-                        padding: 1em 2em 1em 0;
+
+                    td,
+                    th {
+                        padding: 1.5em 3em 1.5em 0;
                     }
-                    [data-info=description] span{
-                        background: #1638CF;
-                        border-radius: $corner;
-                        padding: .2em;
+
+                    [data-info=description] span,
+                    [data-info=status] span {
+
+                        background: $main-color;
                         color: white;
+                        margin: 1px;
+                        padding: .4em 1em;
+                        border: none;
+                        border-radius: 4px;
+                        font-family: poppins;
+                        margin-bottom: 1em;
+                        transition: 0.5s;
+                        display: inline-block;
+                        text-align: center;
+                    }
+                    [data-info=description] span {
                         cursor: pointer;
                     }
                 }
@@ -346,53 +426,59 @@ body {
         height: 100%;
         display: grid;
         place-items: center;
+
         h1 {
             margin-bottom: 1em;
         }
+
         form {
             width: 100%;
-        max-width: 400px;
-        border-radius: $corner;
-        background: $light;
-        box-shadow: $shadow;
-        display: flex;
-        flex-direction: column;
-        padding: 2em;
-        input {
-            display: block;
-            margin-bottom: 1em;
+            max-width: 400px;
+            border-radius: $corner;
+            background: $light;
+            box-shadow: $shadow;
+            display: flex;
+            flex-direction: column;
+            padding: 2em;
 
-        }
-        a {
-            margin-bottom: .5em;
-        }
+            input {
+                display: block;
+                margin-bottom: 1em;
 
-        button {
+            }
 
-            background: $main-color;
-            color: white;
-            display: block;
-            margin: 0;
-            padding: .4em 1em;
-            border: none;
-            cursor: pointer;
-            font-family: poppins;
-            margin-bottom: 1em;
-            transition: 0.5s;
-        }
+            a {
+                margin-bottom: .5em;
+            }
+
+            button {
+
+                background: $main-color;
+                color: white;
+                display: block;
+                margin: 0;
+                padding: .4em 1em;
+                border: none;
+                cursor: pointer;
+                font-family: poppins;
+                margin-bottom: 1em;
+                transition: 0.5s;
+            }
 
         }
     }
 
     .active {
-        height: auto!important;
+        height: auto !important;
+
         @include tablet {
-            width: 300px!important;
-            height: auto!important;
+            width: 300px !important;
+            height: auto !important;
         }
     }
 
-    .swal2-popup {/*
+    .swal2-popup {
+        /*
         height: 200px;
         overflow-y: auto; */
     }

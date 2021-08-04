@@ -7,11 +7,13 @@ let toggle = false;
             toggleAside()
 
         })
-        document.querySelector('.fa-bars').addEventListener('click', (e) => {
 
+        document.querySelector('.logo .icon').addEventListener('click', (e) => {
 
             const nameOfClass = document.querySelector('aside').className
-            console.log(nameOfClass)
+
+            /* check if active */
+
             if(nameOfClass==='active'){
                 document.querySelector('aside').classList.remove('active')
             } else {

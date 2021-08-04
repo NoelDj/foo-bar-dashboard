@@ -105,7 +105,18 @@ function createTable(item) {
         copy.querySelector('[data-info=order] ul').appendChild(li)
     })
     copy.querySelector('[data-info=total]').textContent = 20
-    copy.querySelector('[data-info=status]').textContent = item.status
+
+    const statusElement = copy.querySelector('[data-info=status] span')
+
+    statusElement.textContent = item.status
+
+    switch(item.status) {
+      case 'Completed':
+        statusElement.style.background = 'rgb(35, 174, 137)'
+        break;
+      case 'Queue':
+        statusElement.style.background = 'rgb(249, 142, 51)'
+    }
 
     document.querySelector('.section-table tbody').appendChild(copy)
 }
@@ -131,7 +142,7 @@ function filterList (event) {
     event.preventDefault()
     let filteredList = []
     document.querySelectorAll('button').forEach(e=>{
-      e.style.background = 'rgb(22, 56, 207)';
+      e.style.background = '#1C7EBB';
     })
     event.target.style.background = 'red'
     const filterBy = event.target.dataset.filter

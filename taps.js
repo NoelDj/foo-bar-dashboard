@@ -27,7 +27,7 @@ function appendTypes(item) {
     const copy = document.querySelector('template').content.cloneNode(true)
     console.log(item)
 
-    copy.querySelector('[data-info=id]').textContent = item.id
+    copy.querySelector('[data-info=id]').textContent = item.id + 1
     copy.querySelector('[data-info=name]').textContent = item.beer
     copy.querySelector('[data-info=level]').textContent = item.level
     copy.querySelector('[data-info=capacity]').textContent = item.capacity
