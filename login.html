@@ -15,25 +15,23 @@
 
         <main class="login">
 
-
             <form action="">
-                <img src="\foo-bar-logo-positive.png" alt="" style="width: 60px; margin: auto; margin-bottom: 1em;">
+                <img src="images\foo-bar-logo.png" alt="Foo Bar Logo" style="width: 60px; margin: auto; margin-bottom: 1em;">
                 <h1>Login</h1>
                 <label for="">Username</label>
-                <input width="48" height="48" type="text">
+                <input width="48" height="48" type="text" id="username" required>
+                <p class="error" id="error-username"></p>
                 <label for="">Password</label>
-                <input width="48" height="48" type="password">
+                <input width="48" height="48" type="password" id="password" required>
+                <p class="error" id="error-password"></p>
                 <a href="#">Forgot Password?</a>
-                <button> <a href="/index.html" style="color: white;">Login</a></button>
+                <button type="submit" style="color: white"> Login</button>
             </form>
 
         </main>
 
 
-
-    <script type="module" src="./index.js"></script>
-
-    <script src="menu.js"></script>
+    <script type="module" src="./js/login.js"></script>
 
 </body>
 

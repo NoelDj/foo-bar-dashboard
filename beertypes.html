@@ -12,7 +12,7 @@
 
     <header>
         <div class="logo">
-            <p>Foo Bar</p>
+            <img src="images/foo-bar-logo.png" alt="Foo Bar Logo">
             <div class="icon">
                 <i class="fas fa-bars"></i>
             </div>
@@ -33,28 +33,39 @@
             </div>
 
             <div class="profile">
-                <img src="riqui.jpg" alt="">
-                <div class="settings"></div>
+                <div class="icon">
+
+                    <img src="images/riqui.jpg" alt="Profile picture">
+                </div>
+                <div class="icon">
+                    <a href="login.html">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </a>
+                </div>
             </div>
         </nav>
     </header>
 
-
     <div class="wrapper">
 
         <aside>
-            <div class="box" style="background: #23AE89;">
-                <div class="wrap"><i class="fas fa-eye"></i></div> <a href="index.html">Overview</a>
-            </div>
-            <div class="box" style="background:#F98E33"> <div class="wrap"><i class="fas fa-file-invoice"></i></div> <a
-                    href="orders.html">Orders</a></div>
-            <div class="box" style="background: #1C7EBB;"><div class="wrap"><i class="fas fa-beer"></i></div><a
-                    href="beertypes.html">Beertypes</a></div>
-            <div class="box" style="background: #6A55C2;"><div class="wrap"><i class="fas fa-pump-soap"></i></div><a href="taps.html">Taps</a>
-            </div>
+            <nav>
+                <div class="box" style="background: #23AE89;">
+                    <div class="wrap"><i class="fas fa-eye"></i></div> <a href="index.html">Overview</a>
+                </div>
+                <div class="box" style="background:#F98E33">
+                    <div class="wrap"><i class="fas fa-file-invoice"></i></div> <a href="orders.html">Orders</a>
+                </div>
+                <div class="box" style="background: #1C7EBB;">
+                    <div class="wrap"><i class="fas fa-beer"></i></div><a href="beertypes.html">Beers</a>
+                </div>
+                <div class="box" style="background: #6A55C2;">
+                    <div class="wrap"><i class="fas fa-pump-soap"></i></div><a href="taps.html">Taps</a>
+                </div>
+            </nav>
         </aside>
 
-    <main>
+        <main>
         <h1>Beertypes</h1>
         <section class="section-table">
             <table>
@@ -88,30 +99,12 @@
 
     </main>
 
-    <template id="my-template">
-        <swal-title>
-          Save changes to "Untitled 1" before closing?
-        </swal-title>
-        <swal-icon type="warning" color="red"></swal-icon>
-        <swal-button type="confirm">
-          Save As
-        </swal-button>
-        <swal-button type="cancel">
-          Cancel
-        </swal-button>
-        <swal-button type="deny">
-          Close without Saving
-        </swal-button>
-        <swal-param name="allowEscapeKey" value="false" />
-        <swal-param
-          name="customClass"
-          value='{ "popup": "my-popup" }' />
-      </template>
+
 
 
     </div>
-    <script type="module" src="./beertypes.js"></script>
-    <script src="menu.js"></script>
+    <script type="module" src="./js/beertypes.js"></script>
+    <script type="module" src="./js/menu.js"></script>
 
 <script>
 

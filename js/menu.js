@@ -1,3 +1,5 @@
+"use strict"
+
 let toggle = false;
 
         document.querySelector('aside').addEventListener('mouseenter', (e) => {

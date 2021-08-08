@@ -1,4 +1,6 @@
-import './main.scss'
+"use strict"
+
+import '../css/main.scss'
 
 window.addEventListener('DOMContentLoaded', init)
 

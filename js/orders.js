@@ -1,8 +1,7 @@
-import './main.scss'
-
 "use strict"
 
-import './main.scss'
+import '../css/main.scss'
+
 
 const list = [{
     "id": 1,

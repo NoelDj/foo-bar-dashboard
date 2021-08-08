@@ -1,16 +1,13 @@
-import './main.scss'
-import Swal from 'sweetalert2/dist/sweetalert2.js'
+"use strict"
 
-import 'sweetalert2/src/sweetalert2.scss'
+import '../css/main.scss'
+
 
 window.addEventListener('DOMContentLoaded', init)
 
 function init() {
     loadTypes()
 
-    /* Swal.fire({
-        template: '#my-template'
-      }) */
 }
 
 
@@ -27,7 +24,6 @@ function handleTypes(data) {
 
 function appendTypes(item) {
     const copy = document.querySelector('#types template').content.cloneNode(true)
-    console.log(item)
 
     copy.querySelector('[data-info=name]').textContent = item.name
     copy.querySelector('[data-info=category]').textContent = item.category
@@ -39,15 +35,6 @@ function appendTypes(item) {
     })
 
     document.querySelector('#types').appendChild(copy)
-}
-
-function showModal(item) {
-    console.log(item)
-    Swal.fire({
-        title: item.name,
-        text: item.description.appearance,
-        confirmButtonText: 'Close'
-      })
 }
 
 function getOrigin(item){

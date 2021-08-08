@@ -305,6 +305,10 @@ body {
                     flex-direction: column;
                 }
 
+                .small-card {
+                    color: $light;
+                }
+
                 .block {
                     display: block;
                     padding: 2em;
@@ -443,12 +447,19 @@ body {
 
             input {
                 display: block;
-                margin-bottom: 1em;
+                margin-bottom: .0em;
 
             }
 
             a {
                 margin-bottom: .5em;
+            }
+
+            .error {
+                margin-top: 0;
+                margin-bottom: 0.5em;
+                color: red;
+                font-size: 0.8rem;
             }
 
             button {
@@ -475,12 +486,6 @@ body {
             width: 300px !important;
             height: auto !important;
         }
-    }
-
-    .swal2-popup {
-        /*
-        height: 200px;
-        overflow-y: auto; */
     }
 
 }

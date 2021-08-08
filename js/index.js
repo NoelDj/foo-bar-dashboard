@@ -1,10 +1,10 @@
-import './main.scss'
+"use strict"
+
+import '../css/main.scss'
 import Toastify from 'toastify-js'
 import "toastify-js/src/toastify.css"
 import Chart from 'chart.js/auto';
 import '@fortawesome/fontawesome-free/js/all.min.js';
-// If you use the default popups, use this.
-
 
 
 window.addEventListener('DOMContentLoaded', init)
@@ -36,9 +36,29 @@ function handleData(data){
     insertData('closing-time', getTap(data.taps))
     insertStock('stock', getStock(data.storage))
 
-    showNotification(`There are ${data.queue.length} orders`)/*
-    showNotification(`There are ${data.bartenders.length} at work`) */
 
+
+    switch(data.queue.length) {
+        case 1:
+            showNotification('There is 1 order')
+          break;
+        case 0:
+            showNotification(`The are no orders`)
+          break;
+        default:
+            showNotification(`There are ${data.queue.length} orders`)
+    }
+
+    switch(data.bartenders.length) {
+        case 1:
+            showNotification('There is 1 bartender at work')
+          break;
+        case 0:
+            showNotification(`There is no one at work`)
+          break;
+        default:
+            showNotification(`There are ${data.bartenders.length} bartenders at work`)
+    }
 
 }
 
