@@ -3,8 +3,8 @@
 import '../css/main.scss'
 import Toastify from 'toastify-js'
 import "toastify-js/src/toastify.css"
-import Chart from 'chart.js/auto';
-import '@fortawesome/fontawesome-free/js/all.min.js';
+import Chart from 'chart.js/auto'
+import '@fortawesome/fontawesome-free/js/all.min.js'
 
 
 window.addEventListener('DOMContentLoaded', init)
@@ -33,7 +33,7 @@ function handleData(data){
 
     insertData('current-orders' , data.queue.length)
     insertData('staff' , data.bartenders.length)
-    insertData('closing-time', getTap(data.taps))
+    insertData('low-taps', getTap(data.taps))
     insertStock('stock', getStock(data.storage))
 
 
@@ -51,13 +51,13 @@ function handleData(data){
 
     switch(data.bartenders.length) {
         case 1:
-            showNotification('There is 1 bartender at work')
+            showNotification('There is 1 employee at work')
           break;
         case 0:
             showNotification(`There is no one at work`)
           break;
         default:
-            showNotification(`There are ${data.bartenders.length} bartenders at work`)
+            showNotification(`There are ${data.bartenders.length} eomployees at work`)
     }
 
 }
@@ -65,7 +65,6 @@ function handleData(data){
 function createLists(data){
 
     const sorted = data.bartenders.sort((a, b) =>  a.name < b.name ? -1 : 1)
-    document.querySelector('.loader').remove()
     sorted.forEach(appendTable)
 
     createStockChart(data.storage)
@@ -80,10 +79,10 @@ function showNotification(message) {
         destination: "orders.html",
         newWindow: true,
         close: true,
-        gravity: "bottom", // `top` or `bottom`
-        position: "right", // `left`, `center` or `right`
+        gravity: "bottom",
+        position: "right",
         backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
-        stopOnFocus: true, // Prevents dismissing of toast on hover
+        stopOnFocus: true,
         onClick: function(){} // Callback after click
       }).showToast();
 
@@ -102,14 +101,28 @@ function appendTapList (item) {
 
     document.querySelector('.tap-information').appendChild(copy)
 }
-
 function appendTable(person) {
     const copy = document.querySelector('#employees').content.cloneNode(true)
 
     copy.querySelector('[data-info=name]').textContent = capitalize(person.name)
     copy.querySelector('[data-info=status]').textContent = capitalize(person.status)
     copy.querySelector('[data-info=serving]').textContent = person.servingCustomer ?  'ID: ' + person.servingCustomer : 'NA'
-    copy.querySelector('[data-info=status-detail]').textContent = person.statusDetail
+    console.log(person.statusDetail)
+    let status = "";
+    if (person.statusDetail === "pourBeer"){
+        status = "Pouring beer"
+    } else if(person.statusDetail === "release Tap"){
+        status = "Reserving tap"
+    } else if(person.statusDetail === "replaceKeg"){
+        status = "Replacing keg"
+    } else if(person.statusDetail === "receivePayment") {
+        status = "Receiving payment"
+    } else if(person.statusDetail === "startServing") {
+        status = "Starting serving"
+    }
+
+    console.log(status)
+    copy.querySelector('[data-info=status-detail]').textContent = status
     copy.querySelector('[data-info=using-tap]').textContent = person.usingTap ?  person.usingTap : 'NA'
 
     document.querySelector('#staff tbody').appendChild(copy)
@@ -132,6 +145,7 @@ function createStockChart(information) {
             data: amount,
         }]
     };
+
     const config = {
         type: 'bar',
         data,
@@ -150,11 +164,11 @@ function createStockChart(information) {
             }
         }
 
-    };
+    }
     var myChart = new Chart(
         document.getElementById('stock-chart'),
         config
-    );
+    )
 
 }
 

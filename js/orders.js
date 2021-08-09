@@ -1,7 +1,7 @@
 "use strict"
 
 import '../css/main.scss'
-
+import '@fortawesome/fontawesome-free/js/all.min.js'
 
 const list = [{
     "id": 1,

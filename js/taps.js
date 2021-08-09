@@ -1,6 +1,7 @@
 "use strict"
 
 import '../css/main.scss'
+import '@fortawesome/fontawesome-free/js/all.min.js'
 
 window.addEventListener('DOMContentLoaded', init)
 

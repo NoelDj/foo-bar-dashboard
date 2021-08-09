@@ -290,13 +290,13 @@ body {
 
             section {
                 display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
                 gap: 3em;
                 margin-bottom: 3em;
 
                 article {
                     border-radius: $corner;
-                    min-height: 120px;
+                    min-height: 150px;
                     background: $light;
                     box-shadow: $shadow;
                     display: flex;
@@ -305,9 +305,7 @@ body {
                     flex-direction: column;
                 }
 
-                .small-card {
-                    color: $light;
-                }
+
 
                 .block {
                     display: block;
@@ -424,6 +422,11 @@ body {
 
             }
         }
+
+        #overview .small-card {
+            color: $light;
+        }
+
     }
 
     .login {

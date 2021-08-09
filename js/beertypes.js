@@ -1,7 +1,9 @@
 "use strict"
 
 import '../css/main.scss'
-
+import '@fortawesome/fontawesome-free/js/all.min.js'
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+import 'sweetalert2/src/sweetalert2.scss'
 
 window.addEventListener('DOMContentLoaded', init)
 
@@ -37,7 +39,17 @@ function appendTypes(item) {
     document.querySelector('#types').appendChild(copy)
 }
 
+function showModal(item) {
+    console.log(item)
+    Swal.fire({
+        title: item.name,
+        text: item.description.appearance,
+        confirmButtonText: 'Close'
+      })
+}
+
 function getOrigin(item){
+    //Assigning random countries to show more data
     const countries = ['Netherlands', 'France', 'Germany', 'Belgium', 'Mexico', 'Brazil']
     const origin = countries[Math.floor(Math.random() * countries.length)];
     return origin
