@@ -111,7 +111,7 @@ function appendTable(person) {
     let status = "";
     if (person.statusDetail === "pourBeer"){
         status = "Pouring beer"
-    } else if(person.statusDetail === "release Tap"){
+    } else if(person.statusDetail === "releaseTap"){
         status = "Reserving tap"
     } else if(person.statusDetail === "replaceKeg"){
         status = "Replacing keg"
