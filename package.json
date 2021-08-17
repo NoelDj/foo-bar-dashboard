@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@editorjs/editorjs": "^2.22.2",
     "@fortawesome/fontawesome-free": "^5.15.3",
     "chart.js": "^3.3.2",
     "sass": "^1.34.0",

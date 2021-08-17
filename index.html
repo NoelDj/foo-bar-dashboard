@@ -74,20 +74,24 @@
             <section id="overview">
 
                 <article class="small-card" style="background: #23AE89;" id="current-orders">
-                    <h2>Current Orders</h2>
+                    <h2></h2>
                     <h3>Current Orders</h3>
+                    <div class="lds-ellipsis white-spinner"><div></div><div></div><div></div><div></div></div>
                 </article>
                 <article class="small-card" style="background:#F98E33" id="stock">
-                    <h2>Current Orders</h2>
+                    <h2></h2>
                     <h3>Are low in stock</h3>
+                    <div class="lds-ellipsis white-spinner"><div></div><div></div><div></div><div></div></div>
                 </article>
                 <article class="small-card" style="background: #1C7EBB;" id="staff">
-                    <h2>Current Orders</h2>
+                    <h2></h2>
                     <h3>Currently at work</h3>
+                    <div class="lds-ellipsis white-spinner"><div></div><div></div><div></div><div></div></div>
                 </article>
                 <article class="small-card" style="background: #6A55C2;" id="low-taps">
-                    <h2>Current Orders</h2>
+                    <h2></h2>
                     <h3>Taps need refilling</h3>
+                    <div class="lds-ellipsis white-spinner"><div></div><div></div><div></div><div></div></div>
                 </article>
 
             </section>
@@ -100,7 +104,7 @@
                     <div id="storage">
                         <canvas id="stock-chart"></canvas>
                     </div>
-
+                <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
                 </article>
                 <article class="block" id="taps">
                     <h2>Taps capacity</h2>
@@ -121,6 +125,7 @@
                         </div>
                     </template>
 
+                    <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
                 </article>
             </section>
 
@@ -151,8 +156,20 @@
                             <td data-info="using-tap"></td>
                         </tr>
                     </template>
-
+                    <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
                 </table>
+
+
+            </section>
+
+            <section class="notes">
+                <article>
+                    <h2>Notes</h2>
+                    <div id="editorjs" style="height: 200px;overflow-y: scroll;width: 100%;"></div>
+                    <button id="save-btn">Save</button>
+                    <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+                </article>
+                <div></div>
             </section>
 
 
